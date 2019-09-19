@@ -4,10 +4,26 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var financingRouter = require('./routes/financing');
 var indexRouter = require('./routes/index');
+var reviewRouter = require('./routes/review');
+var scolarshipRouter = require('./routes/scolarship');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://admin:<admin>@cluster0-6zv9r.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const usersDB = client.db("BKT").collection("users")
+  const reviewsDB = client.db("BKT").collection("reviews")
+  const scolarshipsDB = client.db("BKT").collection("scolarships")
+  const financingDB = client.db("BKT").collection("financing")
+  client.close();
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +37,9 @@ app.use(express.static(path.join(__dirname, 'front/build')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/financing', financingRouter);
+app.use('/scolarship', scolarshipRouter);
+app.use('/review', reviewRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,9 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+/* POST USER. */
+router.post('/createUser', function(req, res, next) {
+  res.send()
 });
-
+/* GET USER. */
+router.get('/getUser', function(req, res, next) {
+  res.send();
+});
+/* PUT USER. */
+router.put('/putUser', function(req, res, next) {
+  res.send();
+});
+/* DELETE USER. */
+router.delete('/deleteUser', function(req, res, next) {
+  res.send();
+});
 module.exports = router;
