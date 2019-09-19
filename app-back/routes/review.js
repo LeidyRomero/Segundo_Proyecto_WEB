@@ -5,7 +5,7 @@ router.post('/createReview', function(req, res, next) {
     res.send();
   });
   /* GET REVIEW. */
-  router.get('/getReview', function(req, res, next) {
+  router.get('/review/:id', function(req, res, next) {
     res.send();
   });
   /* PUT REVIEW. */

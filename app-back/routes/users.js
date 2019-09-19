@@ -6,7 +6,7 @@ router.post('/createUser', function(req, res, next) {
   res.send()
 });
 /* GET USER. */
-router.get('/getUser', function(req, res, next) {
+router.get('/user/:id', function(req, res, next) {
   res.send();
 });
 /* PUT USER. */

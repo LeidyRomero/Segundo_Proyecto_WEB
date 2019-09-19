@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET SCOLARSHIP. */
-router.get('/getScolarship', function(req, res, next) {
+router.get('/scolarship/:id', function(req, res, next) {
     res.send();
   });
 
