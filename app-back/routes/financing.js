@@ -1,7 +1,5 @@
-/*import {obtainFinancingCollection} from '../lib/connection.js';*/
-
 var express = require('express');
-//var obtainFinancingCollection = require('../lib/connection.j');
+var obtainFinancingCollection = require('../lib/connection.js');
 var router = express.Router();
 
 /* GET FINANCING. */
@@ -14,6 +12,7 @@ router.get('/financing/:id', function(req, res, next) {
                     console.log("Error while getting the collection", errDatabase);
                     //TODO something with docs
                 client.close();
+                return docs;
             });
             });
         }

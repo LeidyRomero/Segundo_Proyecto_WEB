@@ -1,10 +1,10 @@
-const usersCollection;
-const reviewsCollection;
-const scolarshipsCollection;
-const financingCollection; 
-const MongoClient;
-const url;
-const client;
+let usersCollection;
+let reviewsCollection;
+let scolarshipsCollection;
+let financingCollection; 
+let MongoClient;
+let url;
+let client;
 
 function connect(){
 

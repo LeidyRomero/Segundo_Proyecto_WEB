@@ -7,7 +7,7 @@ var financingRouter = require('./routes/financing');
 var indexRouter = require('./routes/index');
 var reviewRouter = require('./routes/review');
 var scolarshipRouter = require('./routes/scolarship');
-var usersRouter = require('./routes/users');
+var usersRouter = require('./routes/user');
 
 var app = express();
 
@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/front/build')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 app.use('/financing', financingRouter);
 app.use('/scolarship', scolarshipRouter);
 app.use('/review', reviewRouter);
