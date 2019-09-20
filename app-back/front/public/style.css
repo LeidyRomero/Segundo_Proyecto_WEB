@@ -1,0 +1,27 @@
+#btn-login {
+    color: white;
+    background-color: #8293E3;
+    border-radius: 4px;
+}
+
+#btn-login:hover {
+    background-color: #6d7bc0;
+}
+
+#nav {
+    background-color: white;
+    width: 100%;
+}
+
+body {
+    background-color: lightgray;    /*Es este color sólo para debuggear cómo se ve la barra de navegación*/
+}
+
+#btn-inicio, #btn-becas, #btn-financiacion, #btn-comparador {
+    color: black;
+}
+
+#btn-inicio:hover, #btn-becas:hover, #btn-financiacion:hover, #btn-comparador:hover {
+    color: #8293E3;
+    text-decoration: underline;
+}
