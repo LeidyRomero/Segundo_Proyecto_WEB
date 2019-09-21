@@ -14,36 +14,54 @@ var router = express.Router();
 }
 *--------------------------------------------------/
 
-/* GET SCOLARSHIP. */
-router.get('/scolarship/:id', function(req, res, next) {
-    res.send(
-      function getScolarship(){
-        obtainScolarshipsCollection( (client, obtainScolarshipsCollection) =>{
-            obtainScolarshipsCollection.find({"id":`${req.params.id}`}).toArray(function(errDatabase, docs) {
-            if(errDatabase!==null)
-                console.log("Error while getting the collection", errDatabase);
-                //TODO something with docs
-            client.close();
-        });
-        });
-    }
-    );
-  });
+/* GET ALL SCOLARSHIP. */
+function getAll(callback){
 
-  router.get('/scolarship/', function(req, res, next) {
-    res.send(
-      function getScolarship(){
-        obtainScolarshipsCollection( (client, obtainScolarshipsCollection) =>{
-            obtainScolarshipsCollection.find({}).toArray(function(errDatabase, docs) {
-            if(errDatabase!==null)
-                console.log("Error while getting the collection", errDatabase);
-                //TODO something with docs
-            client.close();
+    conn.connectCollectionScolarships( (scolarshipsCollection) => {
+        scolarshipsCollection.find({}).toArray( (err, docs) => {
+            if(err !== null){
+                console.log("Error while getting the collection", err);
+                return;
+            } 
+            console.log(docs);
+            callback(docs);
         });
+    })
+
+}
+/*GET ONE SCOLARSHIP*/
+function getOne(callback, name_search){
+    conn.connectCollectionScolarships( (scolarshipsCollection) => {
+        scolarshipsCollection.find({ name : name_search}).toArray( (err, docs) => {
+            if(err !== null){
+                console.log("Error while getting the collection", err);
+                return;
+            } 
+            console.log(docs);
+            callback(docs);
         });
-    }
-    );
-  });
+    })
+
+}
+
+/*
+ * GET-ONE SCOLARSHIP.  -> La cambie por _id porque mongo usa la funcion ObjectId() para sacar el id entonces es mas complicado
+ */
+router.get('/:name', function(req, res) {
+    var name = req.params.name;
+    getOne((docs) => {
+            res.json(docs);
+        }, name);
+});
+
+/*
+ * GET-ALL SCOLARSHIPS. 
+ */
+router.get('/', function(req, res, next) {
+    getAll((docs) => {
+        res.json(docs);
+    })
+});
 
 
 module.exports = router;
