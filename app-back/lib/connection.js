@@ -1,45 +1,35 @@
-let usersCollection;
-let reviewsCollection;
-let scolarshipsCollection;
-let financingCollection; 
-let MongoClient;
-let url;
-let client;
+const mongo = require("mongodb").MongoClient;
 
-function connect(){
 
-    MongoClient = require("mongodb").MongoClient;
-    url = "mongodb+srv://<admin>:<admin>@cluster0-6zv9r.mongodb.net/test?retryWrites=true&w=majority";
-    client = new MongoClient(url, {useNewUrlParser: true });
+let scholarshipsCollection;
+let financingCollection;
 
-    client.connect(errClient=>{
-        if(errClient!==null) 
-          console.log("Error while connecting to mongodb: ", errClient);  
-    });
+function connectCollectionFinancings(callback){
+
+    mongo.connect("mongodb+srv://admin:admin@cluster0-6zv9r.mongodb.net/test?retryWrites=true&w=majority",
+                    {useNewUrlParser: true, useUnifiedTopology: true}, (err, client) => {
+                        if(err){
+                            console.log(err);
+                            return;
+                        }
+                        financingCollection = client.db('BKT').collection('financing');
+                        callback(financingCollection);
+                    });
 }   
 
-function obtainUsersCollection(callback){
-    connect();
-    usersCollection = client.db("BKT").collection("users")
-    callback(client, usersCollection);
-}
+function connectCollectionScholarships(callback){
 
-function obtainReviewsCollection(callback){
-    connect();
-    reviewsCollection = client.db("BKT").collection("reviews")
-    callback(client, reviewsCollection);
-}
+    mongo.connect("mongodb+srv://admin:admin@cluster0-6zv9r.mongodb.net/test?retryWrites=true&w=majority",
+                    {useNewUrlParser: true, useUnifiedTopology: true}, (err, client) => {
+                        if(err){
+                            console.log(err);
+                            return;
+                        }
+                        scholarshipsCollection = client.db('BKT').collection('financing');
+                        callback(scholarshipsCollection);
+                    });
+}  
 
-function obtainScolarshipsCollection(callback){
-    connect();
-    scolarshipsCollection = client.db("BKT").collection("scolarships")
-    callback(client, scolarshipsCollection);
-}
+//Falta hacer connectCollectionUsers & connectCollection reviews.
 
-function obtainFinancingCollection(callback){
-    connect();
-    financingCollection = client.db("BKT").collection("financing")
-    callback(client, financingCollection);
-}
-
-module.exports = { connect, obtainFinancingCollection,obtainReviewsCollection,obtainScolarshipsCollection,obtainUsersCollection}; 
+module.exports = {connectCollectionFinancings, connectCollectionScholarships}; 

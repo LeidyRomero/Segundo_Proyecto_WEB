@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import Financing from "./Components/Financing"
-import Navegacion from "./Components/Navegacion";
+import Financing from "./components/Financing"
+import Navegacion from "./components/Navegacion";
 //import { useAuth0 } from "./react-auth0-wrapper";
 import { Auth0Context } from "./react-auth0-wrapper";
 
