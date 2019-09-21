@@ -1,7 +1,13 @@
 import React, {Component} from "react";
 import Financing from "./Components/Financing"
+import Navegacion from "./Components/Navegacion";
+//import { useAuth0 } from "./react-auth0-wrapper";
+import { Auth0Context } from "./react-auth0-wrapper";
 
 class App extends Component {
+
+    static contextType = Auth0Context;
+
     constructor(props)
     {
         super(props);
@@ -41,10 +47,26 @@ class App extends Component {
 
     render()
     {
+
+        const { loading } = this.context;
+
+        if(loading){
+            return(
+                <div>
+                    Loading...
+                </div>
+            );
+        }
+
         return(
             <div className="App">
-                <h1>FRONT</h1>
-                {this.renderComments()}
+                <div className="container-fluid" id="nav">
+                    <Navegacion />
+                </div>
+                <div className="container-fluid">    
+                    <h1>FRONT</h1>
+                    {this.renderComments()}
+                </div>
             </div>
         )
     }
