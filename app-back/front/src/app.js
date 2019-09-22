@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Financing from './Components/Financing'
+import Financing from './Components/Financing/financing'
 import Navegacion from "./Components/Navegacion";
 //import { useAuth0 } from "./react-auth0-wrapper";
 import { Auth0Context } from "./react-auth0-wrapper";
