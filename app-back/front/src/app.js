@@ -1,8 +1,11 @@
 import React, {Component} from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Financing from "./components/Financing"
 import Navegacion from "./components/Navegacion";
 //import { useAuth0 } from "./react-auth0-wrapper";
 import { Auth0Context } from "./react-auth0-wrapper";
+
+import Review from './Components/Review/Review'
 
 class App extends Component {
 
