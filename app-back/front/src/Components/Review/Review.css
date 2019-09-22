@@ -1,0 +1,26 @@
+.review{
+    width: 50rem;
+    padding: 1rem;
+    box-shadow:2px 5px 15px 0px rgba(207,207,207,.5);
+    border: none;
+}
+
+.fa-star{
+    color:#FDA705;
+    font-size: 1.2rem;
+}
+
+.fa-thumbs-up{
+    font-size: 1.2em;
+    color: #6D7BC0;
+    padding-right: 0.3rem;
+}
+
+#likes{
+    color: #6D7BC0;
+}
+
+#col-text{
+    border-top: 0.8px solid rgb(116, 116, 116);
+    margin-top: 0.5em;
+}

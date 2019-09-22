@@ -2,6 +2,7 @@
     color: white;
     background-color: #8293E3;
     border-radius: 4px;
+    border: none;
 }
 
 #btn-login:hover {
