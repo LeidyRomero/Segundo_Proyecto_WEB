@@ -7,7 +7,7 @@ class Scholarship extends Component {
         return (
             <div className="Scholarship">
             
-                <div>{this.props.financing.text}</div>
+                <div>{this.props.scholarship.text}</div>
             </div>
         );
     }
