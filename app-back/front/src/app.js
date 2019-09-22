@@ -1,11 +1,12 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Financing from "./components/Financing/financinglist"
-import Navegacion from "./components/Navegacion";
+import Financing from './Components/Financing'
+import Navegacion from "./Components/Navegacion";
 //import { useAuth0 } from "./react-auth0-wrapper";
 import { Auth0Context } from "./react-auth0-wrapper";
 
 import Review from './Components/Review/Review'
+import CreateReview from './Components/Review/CreateReview'
 
 class App extends Component {
 
@@ -62,7 +63,7 @@ class App extends Component {
         }
 
         return(
-            <div className="App"
+            <div className="App" className="wrap">
                 <div className="container-fluid" id="nav">
                     <Navegacion />
                 </div>

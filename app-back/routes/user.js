@@ -22,10 +22,12 @@ router.post('/create', function(req, res, next) {
 function postUser(callback){
   obtainUsersCollection( (client, obtainUsersCollection) =>{
       obtainUsersCollection.insertOne(req.body).toArray(function(docs,errDatabase) {
-      if(errDatabase!==null)
+      if(errDatabase!==null){
           console.log("Error while getting the collection", errDatabase);
-          callback(docs);
-          client.close();
+	  return;
+      }
+      callback(docs);
+      client.close();
     });
   });
 }
@@ -37,10 +39,12 @@ router.get('/:id', function(req, res, next) {
 function getUser(callback){
   obtainUsersCollection( (client, obtainUsersCollection) =>{
       obtainUsersCollection.find({"id":`${req.params.id}`}).toArray(function(errDatabase, docs) {
-      if(errDatabase!==null)
+      if(errDatabase!==null){
           console.log("Error while getting the collection", errDatabase);
-          callback(docs);
-          client.close();
+	  return;      
+      }
+      callback(docs);
+      client.close();
       });
   });
 }
@@ -52,10 +56,12 @@ router.put('/update/:id', function(req, res, next) {
 function updateUser(callback){
   obtainUsersCollection( (client, obtainUsersCollection) =>{
       obtainUsersCollection.updateOne({"id":`${req.params.id}`}, {$set:req.body}).toArray(function(errDatabase, docs) {
-      if(errDatabase!==null)
+      if(errDatabase!==null){
           console.log("Error while getting the collection", errDatabase);
-          callback(docs);
-          client.close();
+	  return;
+      }
+      callback(docs);
+      client.close();
     });
   });
 }
@@ -67,11 +73,13 @@ router.delete('/remove/:id', function(req, res, next) {
 function deleteUser(callback){
   obtainUsersCollection( (client, obtainUsersCollection) =>{
       obtainUsersCollection.deleteOne({"id":`${req.params.id}`}).toArray(function(errDatabase, docs) {
-      if(errDatabase!==null)
+      if(errDatabase!==null){
           console.log("Error while getting the collection", errDatabase);
-          callback(docs);
-          client.close();
-  });
+	  return;
+      }
+      callback(docs);
+      client.close();
+      });
   });
 }
 module.exports = router;

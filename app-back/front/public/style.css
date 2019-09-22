@@ -16,6 +16,7 @@
 
 body {
     background-color: lightgray;    /*Es este color sólo para debuggear cómo se ve la barra de navegación*/
+    color: rgb(48, 48, 48) !important; /*Sé que no está bien poner "!important" pero si no, bootstrap no me deja u_u att: Juli */
 }
 
 #btn-inicio, #btn-becas, #btn-financiacion, #btn-comparador {
@@ -25,4 +26,8 @@ body {
 #btn-inicio:hover, #btn-becas:hover, #btn-financiacion:hover, #btn-comparador:hover {
     color: #8293E3;
     text-decoration: underline;
+}
+
+.wrap{
+    padding: 0 4em;
 }

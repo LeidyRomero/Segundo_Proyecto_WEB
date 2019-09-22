@@ -2,8 +2,11 @@ import React from "react";
 import { Card, Button, Container, Col, Row } from "react-bootstrap";
 import "./Review.css";
 
-const review = () => {
+const review = (props) => {
   let score = "";
+
+  const text =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
 
   return (
     <div>
@@ -16,22 +19,20 @@ const review = () => {
               </Col>
               <Col xs sm md lg={2} className="d-flex flex-row-reverse">
                 <Card.Subtitle className="text-muted">
-                  4.5 <i class="fas fa-star"></i>
+                  4.5 <i className="fas fa-star"></i>
                 </Card.Subtitle>
               </Col>
             </Row>
             <Row>
               <Col id="col-text">
                 <br />
-                <Card.Text id="text">Lorem ipsum dolor sit amet.</Card.Text>
+                <Card.Text>{text}.</Card.Text>
               </Col>
             </Row>
             <Row>
               <Col className="d-flex flex-row-reverse">
-                <h6 id="likes">
-                    15
-                </h6>
-                <i class="far fa-thumbs-up"></i>
+                <h6 id="likes">15</h6>
+                <i className="far fa-thumbs-up" onClick={props.clicked}></i>
               </Col>
             </Row>
           </Container>
