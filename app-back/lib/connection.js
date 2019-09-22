@@ -1,9 +1,8 @@
 const client = require("mongodb").MongoClient;
 
-
 let scholarshipsCollection;
 let financingCollection;
-let reviessCollection;
+let reviewsCollection;
 let usersCollection;
 
 function connectCollectionFinancings(callback){
@@ -57,7 +56,5 @@ function connectCollectionReviews(callback){
                         callback(reviewsCollection);
                     });
 }  
-
-//Falta hacer connectCollectionUsers & connectCollection reviews.
 
 module.exports = {connectCollectionFinancings, connectCollectionScholarships, connectCollectionUsers, connectCollectionReviews}; 
