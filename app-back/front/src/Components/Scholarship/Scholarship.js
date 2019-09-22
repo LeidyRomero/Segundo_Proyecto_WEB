@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import { Card, Button, Container, Col, Row } from "react-bootstrap";
 
-class Financing extends Component {
+class Scholarship extends Component {
     render() {
         return (
-            <div className="Financing">
+            <div className="Scholarship">
             
                 <div>{this.props.financing.text}</div>
             </div>
@@ -17,4 +17,4 @@ Financing.propTypes =
 { 
     financing:PropTypes.object.isRequired
 }
-export default Financing; 
+export default Scholarship; 
