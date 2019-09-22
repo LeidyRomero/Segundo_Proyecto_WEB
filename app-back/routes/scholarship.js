@@ -38,6 +38,7 @@ function getAll(callback){
     })
 
 }
+
 /*GET ONE COLLECTION SCHOLARSHIP*/
 function getOne(callback, name_search){
     conn.connectCollectionScholarships( (scolarshipsCollection) => {
@@ -82,7 +83,7 @@ function updOne(callback, name_search, obj){
   })
 }
 
-/* UPDATE ONE COLLECTION SCHOLARSHIPS */
+/* DELETE ONE COLLECTION SCHOLARSHIPS */
 function delOne(callback, name_search){
   conn.connectCollectionScholarships( (scolarshipsCollection) => {
       scolarshipsCollection.deleteOne( {name : name_search}, (err, docs) => {

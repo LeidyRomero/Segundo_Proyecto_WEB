@@ -25,6 +25,7 @@ function parseToJSONObj(smth){
     return JSON.parse(jsonStr);
 }
 
+/* GET ALL COLLECTION FINANCING. */
 function getAll(callback){
 
     conn.connectCollectionFinancings( (financingCollection) => {
@@ -41,6 +42,7 @@ function getAll(callback){
 
 }
 
+/* GET ONE COLLECTION FINANCING. */
 function getOne(callback, name_search){
     conn.connectCollectionFinancings( (financingCollection) => {
         financingCollection.find({ name : name_search}).toArray( (err, docs) => {
@@ -56,8 +58,53 @@ function getOne(callback, name_search){
 
 }
 
+/*INSERT ONE COLLECTION FINANCING */
+function inOne(callback, obj){
+    conn.connectCollectionFinancings( (financingCollection) => {
+        financingCollection.insertOne( obj, (err, docs) => {
+            if(err !== null){
+                console.log("Error while getting the collection", err);
+                return;
+            } 
+            console.log(docs);
+            callback(docs);
+        });
+    })
+}
+
+
+/* UPDATE ONE COLLECTION FINANCING */
+function updOne(callback, name_search, obj){
+  conn.connectCollectionFinancings( (financingCollection) => {
+      financingCollection.updateOne( {name : name_search}, {$set : obj}, (err, docs) => {
+          if(err !== null){
+              console.log("Error while getting the collection", err);
+              return;
+          } 
+          console.log(docs);
+          callback(docs);
+      });
+  })
+}
+
+/* DELETE ONE COLLECTION FINANCING */
+function delOne(callback, name_search){
+  conn.connectCollectionFinancings( (financingCollection) => {
+      financingCollection.deleteOne( {name : name_search}, (err, docs) => {
+          if(err !== null){
+              console.log("Error while getting the collection", err);
+              return;
+          } 
+          console.log(docs);
+          callback(docs);
+      });
+  })
+}
+
+/* ----------------------------------- URL DEFINED DIRECTIONS ------------------------------------------------------------------*/
+
 /*
- * GET-ONE FINANCING.  -> La cambie por _id porque mongo usa la funcion ObjectId() para sacar el id entonces es mas complicado
+ * GET-ONE FINANCING.  
  */
 router.get('/:name', function(req, res) {
     var name = req.params.name;
@@ -73,6 +120,38 @@ router.get('/', function(req, res, next) {
     getAll((docs) => {
         res.json(docs);
     })
+});
+
+/*
+ * INSERT-ONE FINANCING. 
+ */
+router.post('/', function(req, res) {
+    var obj = parseToJSONObj(req.body);
+    inOne((response) => {
+        res.json(response);
+    }, obj);
+});
+
+/*
+ * PUT-ONE FINANCING. 
+ */
+router.put("/:name", (req, res) => {
+    var name = req.params.name;
+    var obj = parseToJSONObj(req.body);
+    updOne((response) => {
+        res.json(response);
+    }, name, obj);
+
+});
+
+/*
+ * PUT-ONE FINANCING. 
+ */
+router.delete("/:name", (req, res) => {
+    var name = req.params.name;
+    delOne((data) => {
+        res.json(data);
+    }, name)
 });
  
 module.exports = router;
