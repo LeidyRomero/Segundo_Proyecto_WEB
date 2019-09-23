@@ -37,4 +37,9 @@ class Financing extends Component {
     );
   }
 }
+/*Here is the object with the attributes */ 
+Financing.propTypes = 
+{ 
+    Scholarship:PropTypes.object.isRequired
+}
 export default Financing; 
