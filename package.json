@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "postinstall": "cd app-back && npm install",
+        "postinstall": "cd app-back && npm install && cd front && npm run build",
         "start": "cd app-back && npm start"
     }
 }
