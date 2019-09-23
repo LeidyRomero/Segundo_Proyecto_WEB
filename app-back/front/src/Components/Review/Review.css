@@ -1,6 +1,6 @@
 .review{
-    width: 50rem;
-    padding: 1rem;
+    width: 60rem;
+    padding: 0.8rem;
     box-shadow:2px 5px 15px 0px rgba(207,207,207,.5);
     border: none;
 }
@@ -21,6 +21,35 @@
 }
 
 #col-text{
-    border-top: 0.8px solid rgb(116, 116, 116);
-    margin-top: 0.5em;
+    border-top: 0.8px solid rgba(116, 116, 116,.4);
+    margin: 0.5em 0 1em 0;
+}
+
+#col-review-text{
+    margin: -1.5em 0 1.5em 0;
+}
+
+#text{
+    width: 100%;
+    border-radius: 8px;
+    border-color: rgba(141, 141, 141, 0.4);
+    padding: 0.5em;
+    color: rgb(48, 48, 48);
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+}
+
+.but-guardar{
+    background-color: #8293E3;
+    border: none;
+}
+
+.but-cancelar{
+    margin-left: 12px;
+    background-color: rgb(129, 129, 129);
+    border: none;
+}
+
+#label-selector{
+    background-color: rgb(245, 245, 245);
 }

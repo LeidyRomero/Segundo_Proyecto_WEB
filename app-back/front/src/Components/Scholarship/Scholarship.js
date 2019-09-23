@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
-class Financing extends Component {
+import { Card, Button, Container, Col, Row } from "react-bootstrap";
+
+class Scholarship extends Component {
     constructor() {
     super();
     this.state = {
@@ -9,7 +11,7 @@ class Financing extends Component {
       "description":this.props.value.description
     }
   }
-  render() {
+ render() {
     // RETURN THE COMPONENT
     return (
       <div className="App">
@@ -37,10 +39,9 @@ class Financing extends Component {
       )
     }
 }
-
 /*Here is the object with the attributes */ 
-Financing.propTypes = 
+Scholarship.propTypes = 
 { 
-    Financing:PropTypes.object.isRequired
+    Scholarship:PropTypes.object.isRequired
 }
-export default Financing; 
+export default Scholarship; 

@@ -1,41 +1,44 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person';
+import Review from './Review'
 
 class App extends Component {
   state = {
-    persons: [
-      { id: '1', title: 'Max', age: 28 },
-      { id: 'vasdf1', name: 'Manu', age: 29 },
-      { id: 'asdf11', name: 'Stephanie', age: 26 }
+    reviews: [
+      { id: '1', title: 'Max', text: 28, score:  likes: 0 },
     ],
-    otherState: 'some other value',
-    showPersons: false
+    
   }
 
-  nameChangedHandler = ( event, id ) => {
-    const personIndex = this.state.persons.findIndex(p => {
+  /* ---- 
+  likedHandler = ( event, id ) => {
+    const reviewIndex = this.state.reviews.findIndex(p => {
       return p.id === id;
     });
 
-    const person = {
-      ...this.state.persons[personIndex]
+    const review = {
+      ...this.state.reviews[reviewIndex]
     };
 
-    // const person = Object.assign({}, this.state.persons[personIndex]);
-
-    person.name = event.target.value;
+    actualLikes = review.likes;
+    review.likes = actualLikes + 1;
 
     const persons = [...this.state.persons];
     persons[personIndex] = person;
 
     this.setState( {persons: persons} );
   }
+  */
 
-  deletePersonHandler = (personIndex) => {
-    // const persons = this.state.persons.slice();
-    const persons = [...this.state.persons];
-    persons.splice(personIndex, 1);
+  //CURRENT STATE
+  likesHandler = (reviewIndex) => {
+    const reviews = [...this.state.reviews];
+    selectedReview = reviews[reivewsIndex];
+    if(liked){
+    } else {
+
+    }
+    selectedReview.likes = 
     this.setState({persons: persons});
   }
 
@@ -54,6 +57,16 @@ class App extends Component {
     };
 
     let persons = null;
+
+    const reviewList = this.state.reviews.map((item, index) => {
+        return <Review 
+        key={index} 
+        id={item.id}
+        title={item.title}
+        text={item.text}
+        likes={item.likes}
+        clicked = {() => this.likesHandler(index)}/>;
+      })
 
     return (
       <div className="App">

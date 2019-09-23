@@ -48,6 +48,7 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
     background-color: lightgray;    /*Es este color sólo para debuggear cómo se ve la barra de navegación*/
+    color: rgb(48, 48, 48) !important; /*Sé que no está bien poner "!important" pero si no, bootstrap no me deja u_u att: Juli */
 }
 
 #btn-inicio, #btn-becas, #btn-financiacion, #btn-comparador {
@@ -59,26 +60,6 @@ body {
     text-decoration: underline;
 }
 
-.wrapper {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-    margin-top: 3rem;
+.wrap{
+    padding: 0 4em;
 }
-
-.img-about-circular {
-    border-radius: 50%;
-    max-width: 200px;
-    max-height: 200px;
-    margin: 10% 12% 10% 12%;
-  }
-
-.img-about-circular-info {
-    border-radius: 50%;
-    margin-left: auto;
-    float: left;
-    margin-right: auto;
-    max-width: 200px;
-    max-height: 200px;
-    margin: 8% 8% 5% 5%;
-  }
