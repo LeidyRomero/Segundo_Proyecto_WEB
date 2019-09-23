@@ -1,0 +1,126 @@
+/*
+ *---------------------------------------------------------------
+ *---------------- BKT WEB PAGE CSS STYLE SHEET -----------------
+ *---------------------------------------------------------------
+*/
+
+/*Brand font imported from google font's library*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Subrayada&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,900&display=swap');
+
+/*CSS Rule to exports icons into posible usable browsers*/
+@font-face {
+    font-family: 'icomoon'; /*This calls the icomoon library for the icons I use in my web page*/
+    src: url("../fonts/icomoon/icomoon.eot?srf3rx"); /*.eot source for IE9 Compat */
+    src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), /*.eot source for  > IE9 Compat */
+         url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), /*.ttf source for Safari, Andrioid & iOS Compat */
+         url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"), /*.woff source for latest browsers */
+         url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg"); /*.svg source Legacy iOS */
+    font-weight: normal; /* Defines the boldness of the font-face */
+    font-style: normal; /* Defines if font-face is normal, italic or oblique */
+}
+
+/*Gives a elegant font for titles*/
+.carousel {
+    color: #ffffff;
+    font-family: 'Merriweather', serif;    
+    font-weight: 400;
+    margin: 10px;
+    
+    /*Margin for paragraphs in clock way: top | right  | bottom  | left*/
+}
+
+p {
+    margin-bottom: 1.5em; /*Separate paragraphs with 1.5 m's of bottom space*/
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: #000;
+    font-family: 'Merriweather', serif;    
+    font-weight: 400;
+    margin: 10px;
+    /*Margin for paragraphs in clock way: top | right  | bottom  | left*/
+}
+
+#btn-login {
+    color: white;
+    background-color: #8293E3;
+    border-radius: 4px;
+    border: none;
+}
+
+#btn-login:hover {
+    background-color: #6d7bc0;
+    transition: 0.3s;
+}
+
+#nav {
+    background-color: white;
+    width: 100%;
+}
+
+body {
+    background-color: lightgray;    /*Es este color sólo para debuggear cómo se ve la barra de navegación*/
+    color: rgb(48, 48, 48) !important; /*Sé que no está bien poner "!important" pero si no, bootstrap no me deja u_u att: Juli */
+}
+
+button {
+    font-family: 'Raleway', sans-serif;
+}
+
+#btn-inicio, #btn-becas, #btn-financiacion, #btn-comparador {
+    color: black;
+}
+
+#btn-inicio:hover, #btn-becas:hover, #btn-financiacion:hover, #btn-comparador:hover {
+    color: #8293E3;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+a {
+    transition: all 0.8s linear;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+a.nav-link{
+    color: #000;
+    float: right;
+    text-transform: uppercase;
+    padding: 8px 10px 8px 10px;
+}
+
+.row.sectioned{
+    width: 100%;
+    margin: 0 0 0 0;
+    background-color: #f2f3f7;
+    border-radius: 10px;
+}
+
+a.navbar-brand{
+    margin: 0 4px 0 0;
+}
+
+
+.wrap{
+    padding: 0 4em;
+}
+
+.foot{
+    width: 100%;
+}
+
+.foot h3, .foot h1{
+    color: #ffff;
+}
+
+.foot p{
+    color: #ffff;
+}
+
+.foot strong{
+    color: #ffff;
+}
