@@ -19,7 +19,7 @@ const review = (props) => {
               </Col>
               <Col xs sm md lg={2} className="d-flex flex-row-reverse">
                 <Card.Subtitle className="text-muted">
-                  4.5 <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i> 4.5 
                 </Card.Subtitle>
               </Col>
             </Row>

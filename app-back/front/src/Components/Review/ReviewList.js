@@ -5,28 +5,30 @@ import Review from './Review'
 class App extends Component {
   state = {
     reviews: [
-      { id: '1', title: 'Max', text: 28, likes: 0 },
+      { id: '1', title: 'Max', text: 28, score:  likes: 0 },
     ],
+    
   }
 
+  /* ---- 
   likedHandler = ( event, id ) => {
     const reviewIndex = this.state.reviews.findIndex(p => {
       return p.id === id;
     });
 
-    const person = {
-      ...this.state.persons[personIndex]
+    const review = {
+      ...this.state.reviews[reviewIndex]
     };
 
-    // const person = Object.assign({}, this.state.persons[personIndex]);
-
-    person.name = event.target.value;
+    actualLikes = review.likes;
+    review.likes = actualLikes + 1;
 
     const persons = [...this.state.persons];
     persons[personIndex] = person;
 
     this.setState( {persons: persons} );
   }
+  */
 
   //CURRENT STATE
   likesHandler = (reviewIndex) => {
