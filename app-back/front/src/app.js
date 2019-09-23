@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Financing from './Components/Financing/financing'
+import Financing from './Components/Financing/financing';
+import Scholarship from './Components/Scholarship/Scholarship';
 import Navegacion from "./Components/Navegacion";
 //import { useAuth0 } from "./react-auth0-wrapper";
 import { Auth0Context } from "./react-auth0-wrapper";
@@ -66,6 +67,7 @@ class App extends Component {
             <div className="App" className="wrap">
                 <div className="container-fluid" id="nav">
                     <Navegacion />
+                    <Financing />
                 </div>
                 <div className="container-fluid">    
                     <h1>FRONT</h1>
