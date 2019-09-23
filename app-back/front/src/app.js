@@ -67,7 +67,6 @@ class App extends Component {
             <div className="App" className="wrap">
                 <div className="container-fluid" id="nav">
                     <Navegacion />
-                    <Financing />
                 </div>
                 <div className="container-fluid">    
                     <h1>FRONT</h1>

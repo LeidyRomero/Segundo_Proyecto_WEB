@@ -25,7 +25,7 @@ class Navegacion extends Component {
               <div className="navbar-nav ml-auto">
                 <a href="#" className="nav-item nav-link" id="btn-inicio">Inicio</a>
                 <a href="#" className="nav-item nav-link" id="btn-becas">Becas</a>
-                <a href="#" className="nav-item nav-link" id="btn-financiacion">Financiación</a>
+                <a href="#./Componet/Financing/finansing.js" className="nav-item nav-link" id="btn-financiacion">Financiación</a>
                 <a href="#" className="nav-item nav-link" id="btn-comparador">Comparador</a>
                 <a className="nav-item nav-link"></a>
                 {!isAuthenticated && (<button className="nav-item nav-link nav-pills" id="btn-login" onClick={() => loginWithRedirect({})}>Iniciar Sesión</button>)}
