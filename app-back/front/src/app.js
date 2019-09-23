@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./app.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Financing from './components/Financing/financing';
 import Scholarship from './components/Scholarship/Scholarship';
@@ -54,18 +55,31 @@ class App extends Component {
                 <div className="container-fluid" id="nav">
                     <Navegacion />
                 </div>
+                <br></br>
                 <div className="container-fluid">
                     <div className="row">
-                        <div id="carouselExampleInterval" className="carousel slide" data-ride="carousel">
+                        <div id="carouselExampleInterval" className="carousel-inner" data-ride="carousel">
                             <div className="carousel-inner">
-                                <div className="carousel-item active" data-interval="10000">
-                                    <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBV1fUb.img?h=440&w=624&m=6&q=60&o=f&l=f" class="d-block w-100" alt="..."></img>
+                                <div className="carousel-item active" data-interval="7000">
+                                    <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBV1fUb.img?h=440&w=624&m=6&q=60&o=f&l=f" class="d-block w-100" alt="Harvard"></img>
+                                    <div class="carousel-caption d-none d-md-block carousel-size">
+                                        <h2 className="carousel">HARVARD</h2>
+                                        <p className="carousel">Its never been so close, get the oportunity to live your dreams & study in the best university</p>
+                                    </div>
                                 </div>
-                                <div className="carousel-item" data-interval="2000">
-                                    <img src="" class="d-block w-100" alt="..."></img>
+                                <div className="carousel-item" data-interval="7000">
+                                    <img src="https://www.unipymes.com/wp-content/uploads/2017/11/uniandes.jpg" className="d-block w-100" alt="Los Andes"></img>
+                                    <div class="carousel-caption d-none d-md-block carousel-size">
+                                        <h2 className="carousel">ANDES</h2>
+                                        <p className="carousel">Its never been so close, get the oportunity to live your dreams & study in the best university</p>
+                                    </div>
                                 </div>
-                                <div className="carousel-item">
+                                <div className="carousel-item" data-interval="7000">
                                     <img src="https://st1.agmeducation.com/media/2017/04/intro_about.jpg" class="d-block w-100" alt="..."></img>
+                                    <div class="carousel-caption d-none d-md-block carousel-size">
+                                        <h2 className="carousel">STANFORD</h2>
+                                        <p className="carousel">Its never been so close, get the oportunity to live your dreams & study in the best university</p>
+                                    </div>
                                 </div>
                             </div>
                             <a className="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">

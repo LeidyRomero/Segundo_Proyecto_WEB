@@ -15,7 +15,7 @@ class Navegacion extends Component {
 
       <nav className="navbar navbar-expand-md navbar-light sticky-top">
           <a href=""><img src="bkt.PNG" height="28" alt="BLT"/></a>
-          <a href="" className="navbar-brand"><h3>BKT</h3></a>
+          <a href="" className="navbar-brand"><h3 className="text-dark">BKT</h3></a>
 
           <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span className="navbar-toggler-icon"></span>

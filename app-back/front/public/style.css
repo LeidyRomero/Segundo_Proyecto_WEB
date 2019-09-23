@@ -22,12 +22,18 @@
 }
 
 /*Gives a elegant font for titles*/
-h1, h2, h3, h4, h5, h6 {
-    color: #000;
+h1.carousel, h2.carousel, h3.carousel, h4.carousel, h5.carousel, h6.carousel {
+    color: #ffffff;
     font-family: 'Merriweather', serif;    
     font-weight: 400;
-    margin: 10px
+    margin: 10px;
+    
     /*Margin for paragraphs in clock way: top | right  | bottom  | left*/
+}
+
+p.carousel {
+    margin-bottom: 1.5em; /*Separate paragraphs with 1.5 m's of bottom space*/
+    font-family: 'Raleway', sans-serif;
 }
 
 #btn-login {
@@ -39,6 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #btn-login:hover {
     background-color: #6d7bc0;
+    transition: 0.3s;
 }
 
 #nav {
@@ -51,6 +58,10 @@ body {
     color: rgb(48, 48, 48) !important; /*Sé que no está bien poner "!important" pero si no, bootstrap no me deja u_u att: Juli */
 }
 
+button {
+    font-family: 'Raleway', sans-serif;
+}
+
 #btn-inicio, #btn-becas, #btn-financiacion, #btn-comparador {
     color: black;
 }
@@ -58,7 +69,26 @@ body {
 #btn-inicio:hover, #btn-becas:hover, #btn-financiacion:hover, #btn-comparador:hover {
     color: #8293E3;
     text-decoration: underline;
+    transition: 0.3s;
 }
+
+a {
+    transition: all 0.8s linear;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+a.nav-link{
+    color: #000;
+    float: right;
+    text-transform: uppercase;
+    padding: 8px 10px 8px 10px;
+}
+
+a.navbar-brand{
+    margin: 0 4px 0 0;
+}
+
 
 .wrap{
     padding: 0 4em;
