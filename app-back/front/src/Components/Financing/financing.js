@@ -10,7 +10,19 @@ class Financing extends Component {
     }
   }
   render() {
-   renderState() {
+    // RETURN THE COMPONENT
+    return (
+      <div className="App">
+        <div class="row">
+        <div class="col-md-10"> </div>
+        <div class="row">
+          {this.renderState()}
+        </div>
+        </div>
+      </div>
+    );
+  }
+  renderState() {
       return (
           <div class="col-md-4 col-lg-4 col-sm-6" >
             <div class="card">
@@ -23,19 +35,7 @@ class Financing extends Component {
             </div>
           </div>
       )
-    };
-    // RETURN THE COMPONENT
-    return (
-      <div className="App">
-        <div class="row">
-        <div class="col-md-10"> <Filter /> </div>
-        <div class="row">
-          {todos}
-        </div>
-        </div>
-      </div>
-    );
-  }
+    }
 }
 /*Here is the object with the attributes */ 
 Financing.propTypes = 
