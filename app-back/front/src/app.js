@@ -1,13 +1,13 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Financing from './Components/Financing/financing';
-import Scholarship from './Components/Scholarship/Scholarship';
-import Navegacion from "./Components/Navegacion";
+import Financing from './components/Financing/financing';
+import Scholarship from './components/Scholarship/Scholarship';
+import Navegacion from "./components/Navegacion";
 //import { useAuth0 } from "./react-auth0-wrapper";
 import { Auth0Context } from "./react-auth0-wrapper";
 
-import Review from './Components/Review/Review'
-import CreateReview from './Components/Review/CreateReview'
+import Review from './components/Review/Review'
+import CreateReview from './components/Review/CreateReview'
 
 class App extends Component {
 
