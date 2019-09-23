@@ -35,15 +35,11 @@ var mongo = require('mongodb')
 
 /* POST REVIEW. */
 router.post("/create", function(req, res, next) {
-  console.log(req.body);
   postReview(req.body, res)
 });
 
 function postReview(review, res) {
   connection(reviewsCollection => {
-    console.log("This is the DATA")
-    const data = {...review}
-    console.log(data)
     reviewsCollection.insertOne({...review}), function(err, result){
       if(err){
         console.err(err);
@@ -80,9 +76,6 @@ function getAllReviews(callback) {
 
 //Get one review with the given id
 router.get("/:id", function(req, res, next) {
-  console.log("This is the back");
-  const id = req.params.id;
-  console.log(id);
   getReview(res, id)
 });
 
@@ -90,7 +83,6 @@ router.get("/:id", function(req, res, next) {
 function getReview(res, id) {
   connection(collection => {
     let o_id = new mongo.ObjectID(id);
-    console.log("this is the id created " + o_id)
     collection.findOne({_id: o_id}).then(reviewFound => {
       if (!reviewFound){
         return res.status(404).end();
@@ -102,37 +94,42 @@ function getReview(res, id) {
      });
 }
 
-//Get the list of reviews from a specific post (financing or scholarship)
-router.get("/get/:id", function(req, res, next) {
-  getReviewsFromPost(function(req, docs) {
-    res.send(docs);
-  });
-});
+//Get the reviews from a specific scholarship
+router.get("/scholarship/:id", function(req, res){
+  console.log(req.params)
+  getReviewsFromScholarship(req.params.id, res);
+})
 
-function getReviewsFromPost(req, callback) {
-  if(req.params.scholarhipId){
-    connection(reviewsCollection => {
-      reviewsCollection.find({scholarhipId: req.params.scholarhipId}).toArray((err, docs) => {
-        if (err !== null) {
-          console.log("Error while getting the list of reviews of the given scholarship", err);
-          return;
-        }
-        console.log(docs);
-        callback(docs);
-      });
+function getReviewsFromScholarship(scholarshipId, res){
+  connection(reviewsCollection => {
+    reviewsCollection.find({scholarhipId: scholarshipId }).toArray((err, docs) => {
+      if (err !== null) {
+        console.log("Error while getting the collection", err);
+        return;
+      }
+      console.log(docs);
+      res.send(docs)
     });
-  } else {
-    connection(reviewsCollection => {
-      reviewsCollection.find({scholarhipId: req.params.financingId}).toArray((err, docs) => {
-        if (err !== null) {
-          console.log("Error while getting the list of reviews of the given financing", err);
-          return;
-        }
-        console.log(docs);
-        callback(docs);
-      });
+  });
+}
+
+//Get the reviews from a specific financing aid
+router.get("/financing/:id", function(req, res){
+  console.log(req.params)
+  getReviewsFromFinancing(req.params.id, res);
+})
+
+function getReviewsFromFinancing(financingId, res){
+  connection(reviewsCollection => {
+    reviewsCollection.find({financingId: financingId }).toArray((err, docs) => {
+      if (err !== null) {
+        console.log("Error while getting the collection", err);
+        return;
+      }
+      console.log(docs);
+      res.send(docs)
     });
-  }
+  });
 }
 
 /* PUT REVIEW. */

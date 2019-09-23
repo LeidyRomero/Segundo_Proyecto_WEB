@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 //import { useAuth0 } from "../react-auth0-wrapper";
 import { Auth0Context } from "../react-auth0-wrapper";
+import {NavLink, withRouter}  from 'react-router-dom'
 
 class Navegacion extends Component {
 
@@ -23,10 +24,10 @@ class Navegacion extends Component {
 
           <div className="collapse navbar-collapse" id="navbarCollapse">
               <div className="navbar-nav ml-auto">
-                <a href="#" className="nav-item nav-link" id="btn-inicio">Inicio</a>
-                <a href="#" className="nav-item nav-link" id="btn-becas">Becas</a>
-                <a href="#./Componet/Financing/finansing.js" className="nav-item nav-link" id="btn-financiacion">Financiación</a>
-                <a href="#" className="nav-item nav-link" id="btn-comparador">Comparador</a>
+              <NavLink to="/" > <a className="nav-item nav-link" id="btn-inicio">Inicio</a></NavLink>
+                <a  className="nav-item nav-link" id="btn-becas">Becas</a>
+                <NavLink to="/financing" ><a className="nav-item nav-link" id="btn-financiacion">Financiación</a></NavLink>
+                <a className="nav-item nav-link" id="btn-comparador">Comparador</a>
                 <a className="nav-item nav-link"></a>
                 {!isAuthenticated && (<button className="nav-item nav-link nav-pills" id="btn-login" onClick={() => loginWithRedirect({})}>Iniciar Sesión</button>)}
                 {isAuthenticated && (<button className="nav-item nav-link nav-pills" id="btn-login" onClick={() => logout()}>Cerrar Sesión</button>)}

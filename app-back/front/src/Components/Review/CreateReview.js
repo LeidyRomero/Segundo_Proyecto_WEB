@@ -34,7 +34,7 @@ class CreateReview extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    axios.post(`http://localhost:3000/review/create`, { title: this.state.title, text: this.state.text, score: this.state.score, likes: this.state.likes })
+    axios.post(`http://localhost:3000/reviews/create`, { title: this.state.title, text: this.state.text, score: this.state.score, likes: this.state.likes })
       .then(res => {
         console.log(res);
         console.log(res.data);
