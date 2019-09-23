@@ -1,5 +1,4 @@
-import React, { Component } from "./node_modules/react";
-import "./App.css";
+import React, { Component } from "react";
 import Review from "./Review";
 import axios from "axios";
 
@@ -8,25 +7,44 @@ class App extends Component {
     reviews: []
   };
 
-  constructor(props){
+  constructor(props) {
     super(props);
+    axios.get(`http://localhost:3000/reviews`).then(res => {
+      const reviews = res.data;
+      console.log("These are the reviews")
+      console.log(reviews)
+      this.populateState(reviews);
+    });
+
     switch (props.select) {
       case "financing":
-          axios.get(`https://localhost:3000/reviews/financing/`+ props.id).then(res => {
+        axios
+          .get(`https://localhost:3000/reviews/financing/` + props.id)
+          .then(res => {
             const reviews = res.data;
-            this.setState({ reviews });
+            this.populateState(reviews);
           });
         break;
       case "scholarhip":
-          axios.get(`https://localhost:3000/reviews/scholarship/`+ props.id).then(res => {
+        axios
+          .get(`https://localhost:3000/reviews/scholarship/` + props.id)
+          .then(res => {
             const reviews = res.data;
-            this.setState({ reviews });
+            this.populateState(reviews);
           });
         break;
+      default:
     }
   }
 
+  populateState = async function(data) {
+    console.log(this.state);
+    await this.setState({ reviews: data });
+    console.log(this.state);
+  };
+
   //CURRENT STATE
+  /*
   likesHandler = reviewIndex => {
     const reviews = [...this.state.reviews];
     selectedReview = reviews[reivewsIndex];
@@ -35,11 +53,7 @@ class App extends Component {
     }
     selectedReview.likes = this.setState({ persons: persons });
   };
-
-  togglePersonsHandler = () => {
-    const doesShow = this.state.showPersons;
-    this.setState({ showPersons: !doesShow });
-  };
+  */
 
   render() {
     const style = {
@@ -53,7 +67,7 @@ class App extends Component {
     const reviewList = this.state.reviews.map((item, index) => {
       return (
         <Review
-          key={index}
+          key={item._id}
           id={item.id}
           title={item.title}
           text={item.text}
@@ -64,7 +78,7 @@ class App extends Component {
       );
     });
 
-    return <div className="App">{reviewList}</div>;
+    return <div className="App"> <h2>Reviews</h2>{reviewList}</div>;
   }
 }
 

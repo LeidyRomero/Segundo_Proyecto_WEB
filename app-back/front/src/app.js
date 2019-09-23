@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./app.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import FinancingList from "./components/Financing/FinancingList";
-import Scholarship from "./components/Scholarship/Scholarship";
+import FinancingList from "./components/Financing/financinglist"
+import ScholarshipList from "./components/Scholarship/ScholarshipList";
 import Navegacion from "./components/Navegacion";
 //import { useAuth0 } from "./react-auth0-wrapper";
 import { Auth0Context } from "./react-auth0-wrapper";
@@ -51,6 +51,7 @@ class App extends Component {
           <div>
             <Route exact path="/" component={Home} />
             <Route path="/financing" component={FinancingList} />
+            <Route path="/scholarship" component={ScholarshipList} />
           </div>
         </BrowserRouter>
       </div>

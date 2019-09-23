@@ -2,7 +2,7 @@ import React, { Component } from "react";
 //import { useAuth0 } from "../react-auth0-wrapper";
 import { Auth0Context } from "../react-auth0-wrapper";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {NavLink, withRouter}  from 'react-router-dom'
+import {NavLink}  from 'react-router-dom'
 import '../app.css';
 
 
@@ -28,12 +28,14 @@ class Navegacion extends Component {
               <div className="navbar-nav ml-auto">
               <NavLink to="/" > 
                 <p className="a nav-item nav-link" id="btn-inicio">Inicio</p>
-              </NavLink>
+                </NavLink>
+                <NavLink to="/scholarship">
                 <p  className="a nav-item nav-link" id="btn-becas">Becas</p>
-              <NavLink to="/financing" >
+                </NavLink>
+                <NavLink to="/financing" >
                 <p className="a nav-item nav-link" id="btn-financiacion">Financiación</p>
-              </NavLink>
-              <a className="nav-item nav-link" id="btn-comparador">Comparador</a>
+                </NavLink>
+                <a className="nav-item nav-link" id="btn-comparador">Comparador</a>
                 {!isAuthenticated && (<button className="nav-item nav-link nav-pills" id="btn-login" onClick={() => loginWithRedirect({})}>Iniciar Sesión</button>)}
                 {isAuthenticated && (<button className="nav-item nav-link nav-pills" id="btn-login" onClick={() => logout()}>Cerrar Sesión</button>)}
               </div>

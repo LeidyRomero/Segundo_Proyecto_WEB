@@ -2,30 +2,30 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, CardDeck } from "react-bootstrap";
 import axios from "axios";
-import Financing from "./financing";
+import ScholarShip from "./Scholarship";
 
 import ReviewsList from "../Review/ReviewList"
 
-class FinancingList extends Component {
-  state = { financing: []};
+class ScholarShipList extends Component {
+  state = { scholarship: []};
 
   constructor(props) {
     super(props);
-    axios.get(`http://localhost:3000/financing`).then(res => {
-      const financing = res.data;
-      this.populateState(financing)
+    axios.get(`http://localhost:3000/scholarship`).then(res => {
+      const scholarship = res.data;
+      this.populateState(scholarship)
     });
   }
 
   populateState = async function(data) {
-    await this.setState({financing: data});
+    await this.setState({scholarship: data});
 }
   
 
   render() {
-    const financingItems = this.state.financing.map((item, index) => {
+    const scholarshipItems = this.state.scholarship.map((item, index) => {
       return (
-        <Financing
+        <ScholarShip
           name={item.name}
           description={item.description}
           image={item.image}
@@ -41,7 +41,7 @@ class FinancingList extends Component {
       <div className="App">
         <Container fluid={true}>
           <CardDeck>
-            {financingItems}
+            {scholarshipItems}
         </CardDeck>
         <ReviewsList />
         </Container>
@@ -50,4 +50,4 @@ class FinancingList extends Component {
   }
 }
 
-export default FinancingList;
+export default ScholarShipList;
