@@ -22,8 +22,8 @@ class Financing extends Component {
               </div>
             </div>
           </div>
-      );
-    }
+      )
+    };
     // RETURN THE COMPONENT
     return (
       <div className="App">
