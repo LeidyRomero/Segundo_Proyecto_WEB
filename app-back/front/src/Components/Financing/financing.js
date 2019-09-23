@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
-class financing extends Component {
+class Financing extends Component {
     constructor() {
     super();
     this.state = {
@@ -37,4 +37,4 @@ class financing extends Component {
     );
   }
 }
-export default financing; 
+export default Financing; 
