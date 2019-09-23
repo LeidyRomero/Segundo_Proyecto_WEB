@@ -43,7 +43,7 @@ class FinancingList3 extends Component {
     return (
       <div className="App">
         <Container fluid={true}>
-          <CardDeck>
+          <CardDeck className="text-center">
             {financingItems}
         </CardDeck>
         </Container>

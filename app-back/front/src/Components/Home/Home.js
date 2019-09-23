@@ -106,8 +106,30 @@ class Home extends Component {
                             <ScholarShipList3/>
                         </div>
                     </div>
+                    <div className="row bg-dark">
+                        <div className="col-lg-12 col-md-12 col-12 text-center">
+                            <h1 className="foot">Reach us.</h1>
+                            <h1><i class="fas fa-map-marker-alt foot"></i></h1>
+                        </div>
+                            <div className="col-lg-4 col-md-4 col-12">
+                                    
+                            </div>
+                            <div className="col-lg-4 col-md-4 col-12">
+                                    <div className="containter text-center">
+                                            <img src="https://cdn.advantis.co/wp-content/uploads/2018/08/Uniandes-2-1024x800.png" alt="Liceo Campo David logo" className="img-about-circular"></img>
+                                    </div>
+                                    <div className="row text-center block">
+                                            <p className="carousel">
+                                                Los Andes University, Bogota - Colombia. Cra 1 Nº 18A - 12.
+                                            </p>
+                                    </div>                                                
+                            </div>
+                            <div className="col-lg-4 col-md-4 col-12">
+                                    
+                            </div>
+                    </div>
                </div>
-            </div>
+            </div>     
         )
     }
 

@@ -53,7 +53,7 @@ class App extends Component {
             <Route path="/financing" component={FinancingList} />
             <Route path="/scholarship" component={ScholarshipList} />
             </BrowserRouter>
-        </div>
+      </div>
     );
   }
 }

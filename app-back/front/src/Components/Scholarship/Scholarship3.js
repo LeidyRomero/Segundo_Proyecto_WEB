@@ -8,12 +8,16 @@ const Scholarship3 = props => {
     marginBottom: "3em",
   }
 
+  const styleB ={
+    margin: "auto" 
+  }
+
   const mom_start = moment(new Date(props.start_date)).format("YYYY-MM-DD");
   const mom_end = moment(new Date(props.end_date)).format("YYYY-MM-DD");
 
   return (
     
-    <div>
+    <div style={styleB}>
       <Card style={style}>
         <Card.Img variant="top" src={props.image} />
         <Card.Body>
