@@ -35,24 +35,26 @@ var mongo = require('mongodb')
 
 /* POST REVIEW. */
 router.post("/create", function(req, res, next) {
-  postReview(function(docs) {
-    res.send(docs);
-  });
+  console.log(req.body);
+  postReview(req.body, res)
 });
 
-function postReview(callback) {
-  obtainReviewCollection((client, obtainReviewCollection) => {
-    obtainReviewCollection
-      .insertOne(req.body)
-      .toArray(function(docs, errDatabase) {
-        if (errDatabase !== null) {
-          console.log("Error while getting the collection", errDatabase);
-          return;
-        }
-        callback(docs);
-        client.close();
-      });
-  });
+function postReview(review, res) {
+  connection(reviewsCollection => {
+    console.log("This is the DATA")
+    const data = {...review}
+    console.log(data)
+    reviewsCollection.insertOne({...review}), function(err, result){
+      if(err){
+        console.err(err);
+        res.send("There was an internal server error when creating the review").status(500);
+      } else {
+        console.log("did it!")
+        console.log(result)
+        res.send(result)
+      }
+    }
+  })
 }
 
 //Get all reviews
@@ -100,28 +102,37 @@ function getReview(res, id) {
      });
 }
 
-/* GET ONE REVIEW BY FINANCINGID OR SCOLARSHIPID. */
+//Get the list of reviews from a specific post (financing or scholarship)
 router.get("/get/:id", function(req, res, next) {
   getReviewsFromPost(function(req, docs) {
-    console.log("This is the request");
-    console.log(req.body);
     res.send(docs);
   });
 });
 
 function getReviewsFromPost(req, callback) {
-  console.log(req.body);
-  /*
-  obtainReviewCollection( (client, obtainReviewCollection) =>{
-      obtainReviewCollection.find({"scolarshipId":`${if(req.params.scolarshipId)}`},{"financingId":`${if(req.params.financingId)}`}).toArray(function(errDatabase, docs) {
-      if(errDatabase!==null){
-          console.log("Error while getting the collection", errDatabase);
-    return;
-}
-      callback(docs);
-      client.close();
+  if(req.params.scholarhipId){
+    connection(reviewsCollection => {
+      reviewsCollection.find({scholarhipId: req.params.scholarhipId}).toArray((err, docs) => {
+        if (err !== null) {
+          console.log("Error while getting the list of reviews of the given scholarship", err);
+          return;
+        }
+        console.log(docs);
+        callback(docs);
       });
-    }); */
+    });
+  } else {
+    connection(reviewsCollection => {
+      reviewsCollection.find({scholarhipId: req.params.financingId}).toArray((err, docs) => {
+        if (err !== null) {
+          console.log("Error while getting the list of reviews of the given financing", err);
+          return;
+        }
+        console.log(docs);
+        callback(docs);
+      });
+    });
+  }
 }
 
 /* PUT REVIEW. */
@@ -145,6 +156,7 @@ function updateReview(callback) {
       });
   });
 }
+
 /* DELETE REVIEW. */
 router.delete("/remove/:id", function(req, res, next) {
   deleteReview(function(docs) {
@@ -152,17 +164,16 @@ router.delete("/remove/:id", function(req, res, next) {
   });
 });
 
-function deleteReview(callback) {
-  obtainReviewCollection((client, obtainReviewCollection) => {
-    obtainReviewCollection
-      .deleteOne({ id: `${req.params.id}` })
+function deleteReview(reviewId, res) {
+  connection(( reviewCollection ) => {
+    reviewCollection
+      .deleteOne({ id: reviewId })
       .toArray(function(errDatabase, docs) {
         if (errDatabase !== null) {
           console.log("Error while getting the collection", errDatabase);
           return;
         }
-        callback(docs);
-        client.close();
+        res.send("Deleted the review successfully")
       });
   });
 }

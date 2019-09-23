@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from './node_modules/react';
 import './App.css';
 import Review from './Review'
 
 class App extends Component {
   state = {
     reviews: [
-      { id: '1', title: 'Max', text: 28, score:  likes: 0 },
+      { id: '1', title: 'Max', text: 28, score:4,  likes: 0 },
     ],
     
   }
+
 
   /* ---- 
   likedHandler = ( event, id ) => {
@@ -56,7 +57,6 @@ class App extends Component {
       cursor: 'pointer'
     };
 
-    let persons = null;
 
     const reviewList = this.state.reviews.map((item, index) => {
         return <Review 
@@ -64,14 +64,14 @@ class App extends Component {
         id={item.id}
         title={item.title}
         text={item.text}
+        score={item.score}
         likes={item.likes}
         clicked = {() => this.likesHandler(index)}/>;
       })
 
     return (
       <div className="App">
-        <h1>Hi, I'm a React App</h1>
-        <p>This is really working!</p>
+          {reviewList}
       </div>
     );
   }

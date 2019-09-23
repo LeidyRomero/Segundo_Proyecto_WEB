@@ -4,9 +4,11 @@ import {
   Button,
   Container,
   Col,
-  Row,
+  Row
 } from "react-bootstrap";
 import "./Review.css";
+import axios from 'axios';
+
 
 class CreateReview extends Component {
   state = {
@@ -25,8 +27,18 @@ class CreateReview extends Component {
     this.setState({ score: newScore });
   };
 
-  printState = () =>{
-      console.log(this.state)
+  printState = () => {
+    console.log(this.state);
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    axios.post(`http://localhost:3000/review/create`, { title: this.state.title, text: this.state.text, score: this.state.score, likes: this.state.likes })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
   }
 
   render() {
@@ -77,8 +89,12 @@ class CreateReview extends Component {
               </Row>
               <Row>
                 <Col className="d-flex flex-row-reverse">
-                  <Button className="but-cancelar" onClick={this.printState}>Cancelar</Button>
-                  <Button className="but-guardar">Guardar</Button>
+                  <Button className="but-cancelar" onClick={this.printState}>
+                    Cancelar
+                  </Button>
+                  <Button className="but-guardar" onClick={this.handleSubmit}>
+                    Guardar
+                  </Button>
                 </Col>
               </Row>
             </Container>
