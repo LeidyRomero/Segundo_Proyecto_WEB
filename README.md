@@ -5,3 +5,4 @@ Para correr la aplicación es necesario ingresar a dos carpetas del proyecto, si
 * `npm install`
 * `npm start`
 
+Aplicación desplegada en Heroku: https://bkt-isis3710.herokuapp.com/
