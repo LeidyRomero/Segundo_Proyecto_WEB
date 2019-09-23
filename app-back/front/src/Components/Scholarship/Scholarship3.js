@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { Card, Button } from "react-bootstrap";
 
-const Scholarship = props => {
+const Scholarship3 = props => {
   const style ={
     width: "18rem",
     marginBottom: "3em",
@@ -13,22 +13,16 @@ const Scholarship = props => {
 
   return (
     
-    <div className="col-sm-12 col-md-6 col-lg-4">
+    <div>
       <Card style={style}>
         <Card.Img variant="top" src={props.image} />
         <Card.Body>
           <Card.Title>{props.name}</Card.Title>
-          <Card.Text>{props.description}</Card.Text>
-          <Button variant="primary">
-            <a href={props.webpage}>Ver detalles</a>
-          </Button>
+          <Card.Text> Inicia en  {mom_start} y termina en {mom_end}{" "}</Card.Text>
         </Card.Body>
-        <Card.Footer className="text-muted">
-          Inicia en  {mom_start} y termina en {mom_end}{" "}
-        </Card.Footer>
       </Card>
     </div>
     
   );
 };
-export default Scholarship;
+export default Scholarship3;

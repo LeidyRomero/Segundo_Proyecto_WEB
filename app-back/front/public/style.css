@@ -93,6 +93,13 @@ a.nav-link{
     padding: 8px 10px 8px 10px;
 }
 
+.row.sectioned{
+    width: 100%;
+    margin: 0 0 0 0;
+    background-color: #f2f3f7;
+    border-radius: 10px;
+}
+
 a.navbar-brand{
     margin: 0 4px 0 0;
 }

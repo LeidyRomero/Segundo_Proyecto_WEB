@@ -22,6 +22,12 @@
     width: 100%;
 }
 
+h2.section {
+    color: #ffff;
+    background-color: #8293E3;
+    border-radius: 4px;
+}
+
 body {
     background-color: lightgray;    /*Es este color sólo para debuggear cómo se ve la barra de navegación*/
     color: rgb(48, 48, 48) !important; /*Sé que no está bien poner "!important" pero si no, bootstrap no me deja u_u att: Juli */

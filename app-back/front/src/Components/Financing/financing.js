@@ -12,7 +12,7 @@ const Financing = props => {
   const mom_end = moment(new Date(props.end_date)).format("YYYY-MM-DD");
 
   return (
-    <div>
+    <div className="col-sm-12 col-md-6 col-lg-4">
       <Card style={style}>
         <Card.Img variant="top" src={props.image} />
         <Card.Body>

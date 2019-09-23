@@ -4,12 +4,10 @@ import { Container, Row, Col, CardDeck } from "react-bootstrap";
 import axios from "axios";
 import Financing3 from "./financing3";
 
-import ReviewsList from "../Review/ReviewList"
-
 class FinancingList3 extends Component {
   state = { 
       financing: [],
-      showItems: 2
+      showItems: 3
     };
 
   constructor(props) {

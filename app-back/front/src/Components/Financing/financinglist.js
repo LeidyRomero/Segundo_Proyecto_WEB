@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, CardDeck } from "react-bootstrap";
-import moment from "moment";
-
 import axios from "axios";
 import Financing from "./financing";
-
 import ReviewsList from "../Review/ReviewList"
 
 class FinancingList extends Component {
@@ -41,6 +38,7 @@ class FinancingList extends Component {
 
     return (
       <div className="App">
+        <br></br>
         <Container fluid={true}>
           <CardDeck>
             {financingItems}

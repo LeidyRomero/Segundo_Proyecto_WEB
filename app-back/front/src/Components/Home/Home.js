@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FinancingList3 from "../Financing/financingList3";
+import ScholarShipList3 from "../Scholarship/ScholarshipList3";
 import { Auth0Context } from "../../react-auth0-wrapper";
 import '../../app.css';
 import axios from "axios";
-import Scholarship from "../Scholarship/Scholarship";
 
 class Home extends Component {
 
@@ -92,13 +92,18 @@ class Home extends Component {
                         </div>
                     </div>
                     <hr></hr>
-                    <div className="row">
+                    <div className="col-sm-12 col-md-12 col-lg-12 text-center">
+                        <h2 className="section">Más Buscados</h2>
+                        <br></br>
+                    </div>
+                    <div className="row sectioned">
                         <div className="col-sm-12 col-md-6 col-lg-6">
                             <h3 className="text-center">FINANCIACIONES</h3>
                             <FinancingList3/>
                         </div>
                         <div className="col-sm-12 col-md-6 col-lg-6">
                             <h3 className="text-center">BECAS</h3>
+                            <ScholarShipList3/>
                         </div>
                     </div>
                </div>
