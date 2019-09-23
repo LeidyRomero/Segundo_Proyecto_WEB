@@ -1,5 +1,5 @@
-import React from "react";
-import { Card, Button, Container, Col, Row } from "react-bootstrap";
+import React from "./node_modules/react";
+import { Card, Container, Col, Row } from "./node_modules/react-bootstrap";
 import "./Review.css";
 
 const review = (props) => {

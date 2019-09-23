@@ -13,7 +13,6 @@ class Navegacion extends Component {
     render(){
 
       const { isAuthenticated, loginWithRedirect, logout } = this.context;
-      console.log("Is auth? " + isAuthenticated);
 
       return(
 

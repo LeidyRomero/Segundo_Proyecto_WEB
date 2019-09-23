@@ -1,67 +1,56 @@
-import React, { Component } from 'react';
-//import './App.css';
-//import Person from './Person/Person';
+import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from "react-bootstrap";
+import axios from "axios";
+import Financing from "./Financing";
 
-class App extends Component {
-  state = {
-    persons: [
-      { id: '1', title: 'Max', age: 28 },
-      { id: 'vasdf1', name: 'Manu', age: 29 },
-      { id: 'asdf11', name: 'Stephanie', age: 26 }
-    ],
-    otherState: 'some other value',
-    showPersons: false
-  }
+class FinancingList extends Component {
+  state = { financing: []};
 
-  nameChangedHandler = ( event, id ) => {
-    const personIndex = this.state.persons.findIndex(p => {
-      return p.id === id;
+  constructor(props) {
+    super(props);
+    axios.get(`http://localhost:3000/financing`).then(res => {
+      console.log("There's something here!");
+      console.log(res.data);
+      const financing = res.data;
+      this.populateState(financing)
     });
-
-    const person = {
-      ...this.state.persons[personIndex]
-    };
-
-    // const person = Object.assign({}, this.state.persons[personIndex]);
-
-    person.name = event.target.value;
-
-    const persons = [...this.state.persons];
-    persons[personIndex] = person;
-
-    this.setState( {persons: persons} );
   }
 
-  deletePersonHandler = (personIndex) => {
-    // const persons = this.state.persons.slice();
-    const persons = [...this.state.persons];
-    persons.splice(personIndex, 1);
-    this.setState({persons: persons});
-  }
+  populateState = async function(data) {
+    console.log(this.state);
+    await this.setState({financing: data});
+    console.log(this.state);
+}
+  
 
-  togglePersonsHandler = () => {
-    const doesShow = this.state.showPersons;
-    this.setState( { showPersons: !doesShow } );
-  }
-
-  render () {
-    const style = {
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    };
-
-    let persons = null;
+  render() {
+    const financingItems = this.state.financing.map((item, index) => {
+      console.log("Look, this is the state")
+      console.log(this.state)
+      return (
+        <Financing
+          name={item.name}
+          description={item.description}
+          image={item.image}
+          webpage={item.webpate}
+          start_date={item.start_date}
+          end_date={item.end_date}
+          key={index}
+        />
+      );
+    });
 
     return (
       <div className="App">
-        <h1>Hi, I'm a React App</h1>
-        <p>This is really working!</p>
+        <Container fluid={true}>
+          <Row>
+            <Col>{financingItems}</Col>
+          </Row>
+        </Container>
       </div>
     );
   }
 }
 
-export default App;
+export default FinancingList;
