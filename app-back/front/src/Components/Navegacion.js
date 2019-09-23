@@ -28,13 +28,13 @@ class Navegacion extends Component {
               <div className="navbar-nav ml-auto">
               <NavLink to="/" > 
                 <a className="a nav-item nav-link" id="btn-inicio">Inicio</a>
-                </NavLink>
-                <NavLink to="/scholarship">
+              </NavLink>
+              <NavLink to="/scholarship">
                 <a  className="a nav-item nav-link" id="btn-becas">Becas</a>
-                </NavLink>
-                <NavLink to="/financing" >
+              </NavLink>
+              <NavLink to="/financing" >
                 <a className="a nav-item nav-link" id="btn-financiacion">Financiación</a>
-                </NavLink>
+              </NavLink>
                 <a className="a nav-item nav-link" id="btn-comparador">Comparador</a>
                 {!isAuthenticated && (<button className="nav-item nav-link nav-pills" id="btn-login" onClick={() => loginWithRedirect({})}>Iniciar Sesión</button>)}
                 {isAuthenticated && (<button className="nav-item nav-link nav-pills" id="btn-login" onClick={() => logout()}>Cerrar Sesión</button>)}

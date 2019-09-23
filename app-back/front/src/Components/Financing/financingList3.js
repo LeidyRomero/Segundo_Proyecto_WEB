@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {NavLink}  from 'react-router-dom'
 import { Container, Row, Col, CardDeck } from "react-bootstrap";
 import axios from "axios";
 import Financing3 from "./financing3";
 
 class FinancingList3 extends Component {
+
   state = { 
       financing: [],
       showItems: 3
     };
+    
 
   constructor(props) {
     super(props);
@@ -45,6 +48,9 @@ class FinancingList3 extends Component {
         <Container fluid={true}>
           <CardDeck className="text-center">
             {financingItems}
+            <NavLink to="/financing" > 
+                <a className="a nav-item nav-link">Ver más financiamientos.</a>
+            </NavLink>
         </CardDeck>
         </Container>
       </div>
