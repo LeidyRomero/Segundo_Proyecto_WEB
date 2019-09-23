@@ -25,7 +25,7 @@ app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/financing', financingRouter);
 app.use('/scholarship', scholarshipRouter);
-app.use('/review', reviewRouter);
+app.use('/reviews', reviewRouter);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {

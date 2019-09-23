@@ -55,3 +55,20 @@ button {
     width: 70%;
     font-weight: 500;
   }
+
+.a {
+    transition: all 0.8s linear;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+.a.nav-link{
+    color: #000;
+    float: right;
+    text-transform: uppercase;
+    padding: 8px 10px 8px 10px;
+}
+
+.a.navbar-brand{
+    margin: 0 4px 0 0;
+}

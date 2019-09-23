@@ -1,79 +1,70 @@
-import React, { Component } from './node_modules/react';
-import './App.css';
-import Review from './Review'
+import React, { Component } from "./node_modules/react";
+import "./App.css";
+import Review from "./Review";
+import axios from "axios";
 
 class App extends Component {
   state = {
-    reviews: [
-      { id: '1', title: 'Max', text: 28, score:4,  likes: 0 },
-    ],
-    
+    reviews: []
+  };
+
+  constructor(props){
+    super(props);
+    switch (props.select) {
+      case "financing":
+          axios.get(`https://localhost:3000/reviews/financing/`+ props.id).then(res => {
+            const reviews = res.data;
+            this.setState({ reviews });
+          });
+        break;
+      case "scholarhip":
+          axios.get(`https://localhost:3000/reviews/scholarship/`+ props.id).then(res => {
+            const reviews = res.data;
+            this.setState({ reviews });
+          });
+        break;
+    }
   }
-
-
-  /* ---- 
-  likedHandler = ( event, id ) => {
-    const reviewIndex = this.state.reviews.findIndex(p => {
-      return p.id === id;
-    });
-
-    const review = {
-      ...this.state.reviews[reviewIndex]
-    };
-
-    actualLikes = review.likes;
-    review.likes = actualLikes + 1;
-
-    const persons = [...this.state.persons];
-    persons[personIndex] = person;
-
-    this.setState( {persons: persons} );
-  }
-  */
 
   //CURRENT STATE
-  likesHandler = (reviewIndex) => {
+  likesHandler = reviewIndex => {
     const reviews = [...this.state.reviews];
     selectedReview = reviews[reivewsIndex];
-    if(liked){
+    if (liked) {
     } else {
-
     }
-    selectedReview.likes = 
-    this.setState({persons: persons});
-  }
+    selectedReview.likes = this.setState({ persons: persons });
+  };
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState( { showPersons: !doesShow } );
-  }
+    this.setState({ showPersons: !doesShow });
+  };
 
-  render () {
+  render() {
     const style = {
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
+      backgroundColor: "white",
+      font: "inherit",
+      border: "1px solid blue",
+      padding: "8px",
+      cursor: "pointer"
     };
 
-
     const reviewList = this.state.reviews.map((item, index) => {
-        return <Review 
-        key={index} 
-        id={item.id}
-        title={item.title}
-        text={item.text}
-        score={item.score}
-        likes={item.likes}
-        clicked = {() => this.likesHandler(index)}/>;
-      })
+      return (
+        <Review
+          key={index}
+          id={item.id}
+          title={item.title}
+          text={item.text}
+          score={item.score}
+          likes={item.likes}
+          clicked={() => this.likesHandler(index)}
+        />
+      );
+    });
 
-    return (
-      <div className="App">
-          {reviewList}
-      </div>
-    );
+    return <div className="App">{reviewList}</div>;
   }
 }
 
