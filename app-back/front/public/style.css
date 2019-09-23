@@ -22,7 +22,7 @@
 }
 
 /*Gives a elegant font for titles*/
-h1.carousel, h2.carousel, h3.carousel, h4.carousel, h5.carousel, h6.carousel {
+.carousel {
     color: #ffffff;
     font-family: 'Merriweather', serif;    
     font-weight: 400;
@@ -31,9 +31,17 @@ h1.carousel, h2.carousel, h3.carousel, h4.carousel, h5.carousel, h6.carousel {
     /*Margin for paragraphs in clock way: top | right  | bottom  | left*/
 }
 
-p.carousel {
+p {
     margin-bottom: 1.5em; /*Separate paragraphs with 1.5 m's of bottom space*/
     font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: #000;
+    font-family: 'Merriweather', serif;    
+    font-weight: 400;
+    margin: 10px;
+    /*Margin for paragraphs in clock way: top | right  | bottom  | left*/
 }
 
 #btn-login {

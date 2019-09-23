@@ -46,8 +46,8 @@ button {
 
 .carousel-inner img {
     margin: auto;
-    max-height: 800px;
-    max-width: 800px;
+    height: 400px;
+    width: 800px;
     filter: contrast(50%);
   }
 
