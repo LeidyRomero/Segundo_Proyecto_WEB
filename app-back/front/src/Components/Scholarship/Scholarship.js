@@ -4,10 +4,11 @@ import { Card, Button } from "react-bootstrap";
 const Scholarship = props => {
   const style ={
     width: "18rem",
-    marginBottom: "3em"
+    marginBottom: "3em",
   }
   return (
-    <div>
+    
+    <div className="col-sm-12 col-md-6 col-lg-4">
       <Card style={style}>
         <Card.Img variant="top" src={props.image} />
         <Card.Body>
@@ -22,6 +23,7 @@ const Scholarship = props => {
         </Card.Footer>
       </Card>
     </div>
+    
   );
 };
 export default Scholarship;

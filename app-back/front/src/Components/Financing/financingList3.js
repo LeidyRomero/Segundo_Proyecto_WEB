@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, CardDeck } from "react-bootstrap";
-import moment from "moment";
-
 import axios from "axios";
-import Financing from "./financing";
+import Financing3 from "./financing3";
 
 import ReviewsList from "../Review/ReviewList"
 
-class FinancingList extends Component {
-  state = { financing: []};
+class FinancingList3 extends Component {
+  state = { 
+      financing: [],
+      showItems: 2
+    };
 
   constructor(props) {
     super(props);
@@ -25,18 +26,20 @@ class FinancingList extends Component {
   
 
   render() {
-    const financingItems = this.state.financing.map((item, index) => {
-      return (
-        <Financing
-          name={item.name}
-          description={item.description}
-          image={item.image}
-          webpage={item.webpate}
-          start_date= {item.start_date}
-          end_date={item.end_date}
-          key={index}
-        />
-      );
+    const financingItems = this.state.financing.slice(0, this.state.showItems).map((item, index) => {
+        
+            return (
+                <Financing3
+                name={item.name}
+                description={item.description}
+                image={item.image}
+                webpage={item.webpate}
+                start_date={item.start_date}
+                end_date={item.end_date}
+                key={index}
+                />
+            );
+        
     });
 
     return (
@@ -45,12 +48,10 @@ class FinancingList extends Component {
           <CardDeck>
             {financingItems}
         </CardDeck>
-        <hr></hr>
-        <ReviewsList />
         </Container>
       </div>
     );
   }
 }
 
-export default FinancingList;
+export default FinancingList3;

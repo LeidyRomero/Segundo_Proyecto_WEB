@@ -19,7 +19,7 @@ class ScholarShipList extends Component {
 
   populateState = async function(data) {
     await this.setState({scholarship: data});
-}
+  }
   
 
   render() {
@@ -39,10 +39,12 @@ class ScholarShipList extends Component {
 
     return (
       <div className="App">
+        <br></br>
         <Container fluid={true}>
           <CardDeck>
             {scholarshipItems}
         </CardDeck>
+        <hr></hr>
         <ReviewsList />
         </Container>
       </div>

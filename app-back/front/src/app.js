@@ -48,13 +48,12 @@ class App extends Component {
         <div className="container-fluid" id="nav">
           <Navegacion />
         </div>
-          <div>
+          
             <Route exact path="/" component={Home} />
             <Route path="/financing" component={FinancingList} />
             <Route path="/scholarship" component={ScholarshipList} />
-          </div>
-        </BrowserRouter>
-      </div>
+            </BrowserRouter>
+        </div>
     );
   }
 }

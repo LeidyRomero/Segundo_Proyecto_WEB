@@ -1,37 +1,37 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import FinancingList3 from "../Financing/financingList3";
 import { Auth0Context } from "../../react-auth0-wrapper";
 import '../../app.css';
+import axios from "axios";
+import Scholarship from "../Scholarship/Scholarship";
 
 class Home extends Component {
 
     static contextType = Auth0Context;
 
-    constructor(props)
+    constructor()
     {
-        super(props);
+        super();
         this.state = {
             financings: [],
             scholarships: []
-        };
+          };
     }
-    /*COMENTARIO 1: LECTURA API DE BECAS Y FINANCIACION PARA ENVIARSELO A BACK*/ 
-    /*TAMBIEN CONEXIONES CON BACK*/
-    componentDidMount()
-    {
-        fetch("/financing/")
-            .then(res=> res.json())
-            .then(data=>{ 
-                this.setState({financings : data})
-            });
 
-        fetch("/scholarship/")
+    componentDidMount() {
+        this.fetchFinancings();
+    }
+
+    fetchFinancings() {
+        fetch('/financing/')
             .then(res => res.json())
-            .then(data => { 
-                this.setState({scholarships : data})
-            });
+            .then(data => {
+            this.setState({financings: data});
+            console.log(this.state.financings);
+        });
     }
-
+    
     render()
     {
         const { loading } = this.context;
@@ -52,21 +52,21 @@ class Home extends Component {
                             <div className="carousel-inner">
                                 <div className="carousel-item active" data-interval="7000">
                                     <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBV1fUb.img?h=440&w=624&m=6&q=60&o=f&l=f" className="d-block w-100" alt="Harvard"></img>
-                                    <div className="carousel-caption d-none d-md-block carousel-size">
+                                    <div className="carousel-caption d-none d-md-block sized text-center">
                                         <h1 className="carousel">HARVARD</h1>
                                         <p className="carousel">La universidad de tus sueños nunca ha estado tan cerca, aprovecha esa oportunidad por la que has estudiado tanto</p>
                                     </div>
                                 </div>
                                 <div className="carousel-item" data-interval="7000">
                                     <img src="https://www.unipymes.com/wp-content/uploads/2017/11/uniandes.jpg" className="d-block w-100" alt="Los Andes"></img>
-                                    <div className="carousel-caption d-none d-md-block carousel-size">
+                                    <div className="carousel-caption d-none d-md-block sized text-center">
                                         <h1 className="carousel">ANDES</h1>
                                         <p className="carousel">La universidad de tus sueños nunca ha estado tan cerca, aprovecha esa oportunidad por la que has estudiado tanto</p>
                                     </div>
                                 </div>
                                 <div className="carousel-item" data-interval="7000">
                                     <img src="https://st1.agmeducation.com/media/2017/04/intro_about.jpg" className="d-block w-100" alt="..."></img>
-                                    <div className="carousel-caption d-none d-md-block carousel-size">
+                                    <div className="carousel-caption d-none d-md-block sized text-center">
                                         <h1 className="carousel">STANFORD</h1>
                                         <p className="carousel">La universidad de tus sueños nunca ha estado tan cerca, aprovecha esa oportunidad por la que has estudiado tanto</p>
                                     </div>
@@ -84,20 +84,20 @@ class Home extends Component {
                         <div className="col-sm-12 col-md-12 col-lg 12 text-center">
                                 <br></br>
                                 <h3>BKT ofrece la mejor opcion</h3>
-                                <p>
+                                <p className="sized-description">
                                     Somos una organización que trabaja por los sueños de los estudiantes más preparados de Colombia.
                                     Trabajamos cada día, para que tu puedas llegar tan lejos como esperas, perdemos el sueño por abrirte
-                                    esa puerta que te llevará al comienzo de la mejor etapa de tu vida... aprovechala. 
+                                    esa puerta que te llevará al comienzo de la mejor etapa de tu vida... aprovéchala. 
                                 </p>
                         </div>
                     </div>
                     <hr></hr>
                     <div className="row">
-                        <div className="col-sm-12 col-md-6 col-lg-12">
+                        <div className="col-sm-12 col-md-6 col-lg-6">
                             <h3 className="text-center">FINANCIACIONES</h3>
-                            
+                            <FinancingList3/>
                         </div>
-                        <div className="col-sm-12 col-md-6 col-lg-12">
+                        <div className="col-sm-12 col-md-6 col-lg-6">
                             <h3 className="text-center">BECAS</h3>
                         </div>
                     </div>

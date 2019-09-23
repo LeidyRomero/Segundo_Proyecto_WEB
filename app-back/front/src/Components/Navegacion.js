@@ -27,15 +27,15 @@ class Navegacion extends Component {
           <div className="collapse navbar-collapse" id="navbarCollapse">
               <div className="navbar-nav ml-auto">
               <NavLink to="/" > 
-                <p className="a nav-item nav-link" id="btn-inicio">Inicio</p>
+                <a className="a nav-item nav-link" id="btn-inicio">Inicio</a>
                 </NavLink>
                 <NavLink to="/scholarship">
-                <p  className="a nav-item nav-link" id="btn-becas">Becas</p>
+                <a  className="a nav-item nav-link" id="btn-becas">Becas</a>
                 </NavLink>
                 <NavLink to="/financing" >
-                <p className="a nav-item nav-link" id="btn-financiacion">Financiación</p>
+                <a className="a nav-item nav-link" id="btn-financiacion">Financiación</a>
                 </NavLink>
-                <a className="nav-item nav-link" id="btn-comparador">Comparador</a>
+                <a className="a nav-item nav-link" id="btn-comparador">Comparador</a>
                 {!isAuthenticated && (<button className="nav-item nav-link nav-pills" id="btn-login" onClick={() => loginWithRedirect({})}>Iniciar Sesión</button>)}
                 {isAuthenticated && (<button className="nav-item nav-link nav-pills" id="btn-login" onClick={() => logout()}>Cerrar Sesión</button>)}
               </div>
