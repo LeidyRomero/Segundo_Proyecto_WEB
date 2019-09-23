@@ -1,3 +1,35 @@
+/*
+ *---------------------------------------------------------------
+ *---------------- BKT WEB PAGE CSS STYLE SHEET -----------------
+ *---------------------------------------------------------------
+*/
+
+/*Brand font imported from google font's library*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Subrayada&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,900&display=swap');
+
+/*CSS Rule to exports icons into posible usable browsers*/
+@font-face {
+    font-family: 'icomoon'; /*This calls the icomoon library for the icons I use in my web page*/
+    src: url("../fonts/icomoon/icomoon.eot?srf3rx"); /*.eot source for IE9 Compat */
+    src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), /*.eot source for  > IE9 Compat */
+         url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), /*.ttf source for Safari, Andrioid & iOS Compat */
+         url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"), /*.woff source for latest browsers */
+         url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg"); /*.svg source Legacy iOS */
+    font-weight: normal; /* Defines the boldness of the font-face */
+    font-style: normal; /* Defines if font-face is normal, italic or oblique */
+}
+
+/*Gives a elegant font for titles*/
+h1, h2, h3, h4, h5, h6 {
+    color: #000;
+    font-family: 'Merriweather', serif;    
+    font-weight: 400;
+    margin: 10px
+    /*Margin for paragraphs in clock way: top | right  | bottom  | left*/
+}
+
 #btn-login {
     color: white;
     background-color: #8293E3;
@@ -26,3 +58,27 @@ body {
     color: #8293E3;
     text-decoration: underline;
 }
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    margin-top: 3rem;
+}
+
+.img-about-circular {
+    border-radius: 50%;
+    max-width: 200px;
+    max-height: 200px;
+    margin: 10% 12% 10% 12%;
+  }
+
+.img-about-circular-info {
+    border-radius: 50%;
+    margin-left: auto;
+    float: left;
+    margin-right: auto;
+    max-width: 200px;
+    max-height: 200px;
+    margin: 8% 8% 5% 5%;
+  }

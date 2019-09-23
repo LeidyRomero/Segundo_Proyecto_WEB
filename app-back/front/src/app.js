@@ -5,7 +5,7 @@ import Navegacion from "./components/Navegacion";
 //import { useAuth0 } from "./react-auth0-wrapper";
 import { Auth0Context } from "./react-auth0-wrapper";
 
-import Review from './Components/Review/Review'
+//import Review from './Components/Review/Review'
 
 class App extends Component {
 
@@ -14,45 +14,31 @@ class App extends Component {
     constructor(props)
     {
         super(props);
-        this.state = {financing:[]};
+        this.state = {
+            financings: [],
+            scholarships: []
+        };
     }
     /*COMENTARIO 1: LECTURA API DE BECAS Y FINANCIACION PARA ENVIARSELO A BACK*/ 
     /*TAMBIEN CONEXIONES CON BACK*/
     componentDidMount()
     {
-        fetch("/financing/:id")
+        fetch("/financing/")
             .then(res=> res.json())
             .then(data=>{ 
-                console.log("datos", data);
-                this.setState({financing:data})
+                this.setState({financings : data})
+            });
+
+        fetch("/scholarship/")
+            .then(res => res.json())
+            .then(data => { 
+                this.setState({scholarships : data})
             });
     }
 
-    renderComments()
-    {
-        console.log(this);
-        return this.state.financing.map((c,i)=><Financing key = {i++} financing={c}></Financing>);
-        /* El codigo anterior es lo mismo que el siguiente codigo
-        let res = [];
-        let i = 0;
-        for(let c of this.state.comments)
-        {
-            res.push(<div key = {i++}>{c.text}</div>);
-        }
-        console.log(res);
-        return res;
-        */
-    }
-
-    /*COMENTARIO 2: POR FAVOR NO CAMBIEN LO QUE ESTA ENTRE EL COMENTARIO 1 Y 2*/
-
-
-
     render()
     {
-
         const { loading } = this.context;
-
         if(loading){
             return(
                 <div>
@@ -62,14 +48,39 @@ class App extends Component {
         }
 
         return(
-            <div className="App"
+            <div className="App">
                 <div className="container-fluid" id="nav">
                     <Navegacion />
                 </div>
-                <div className="container-fluid">    
-                    <h1>FRONT</h1>
-                    {this.renderComments()}
-                </div>
+                <div className="container-fluid">
+                    <div className="row">
+                        <div id="carouselExampleInterval" className="carousel slide" data-ride="carousel">
+                            <div className="carousel-inner">
+                                <div className="carousel-item active" data-interval="10000">
+                                    <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBV1fUb.img?h=440&w=624&m=6&q=60&o=f&l=f" class="d-block w-100" alt="..."></img>
+                                </div>
+                                <div className="carousel-item" data-interval="2000">
+                                    <img src="" class="d-block w-100" alt="..."></img>
+                                </div>
+                                <div className="carousel-item">
+                                    <img src="https://st1.agmeducation.com/media/2017/04/intro_about.jpg" class="d-block w-100" alt="..."></img>
+                                </div>
+                            </div>
+                            <a className="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span className="sr-only">Previous</span>
+                            </a>
+                            <a className="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span className="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <hr></hr>
+                    <div className="row">
+                        hello
+                    </div>
+               </div>
             </div>
         )
     }

@@ -12,6 +12,7 @@ class Financing extends Component {
         );
     }
 }
+
 /*Here is the object with the attributes */ 
 Financing.propTypes = 
 { 
